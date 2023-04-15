@@ -19,6 +19,7 @@ namespace Globenar
         [SerializeField] private ComputeShader _perturbCompute;
         [Range(0f, 1f)][SerializeField] private float _perturbStrength;
 
+        [Header("Other")]
         public Action OnSettignsChaged;
         private ComputeBuffer _heightBuffer;
 
