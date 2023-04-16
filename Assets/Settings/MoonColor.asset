@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32f1cf33a45f3a40a95028c3e0cd8b8, type: 3}
+  m_Name: MoonColor
+  m_EditorClassIdentifier: 
+  _planetMaterial: {fileID: 2100000, guid: 4a6d6cbf5ec050043bf0458128201034, type: 2}
+  _biomeColor:
+    _biomes:
+    - _gradient:
+        serializedVersion: 2
+        key0: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+        key1: {r: 0.8084805, g: 0.8084805, b: 0.8084805, a: 1}
+        key2: {r: 1, g: 1, b: 1, a: 0}
+        key3: {r: 0.74244523, g: 0.74244523, b: 0.74244523, a: 0}
+        key4: {r: 0.94147265, g: 0.94147265, b: 0.94147265, a: 0}
+        key5: {r: 0.84039766, g: 0.84039766, b: 0.84039766, a: 0}
+        key6: {r: 0.9233823, g: 0.9233823, b: 0.9233823, a: 0}
+        key7: {r: 0.5986534, g: 0.5986534, b: 0.5986534, a: 0}
+        ctime0: 0
+        ctime1: 7710
+        ctime2: 13493
+        ctime3: 26214
+        ctime4: 34502
+        ctime5: 45296
+        ctime6: 54741
+        ctime7: 62258
+        atime0: 0
+        atime1: 65535
+        atime2: 65535
+        atime3: 0
+        atime4: 0
+        atime5: 0
+        atime6: 0
+        atime7: 0
+        m_Mode: 0
+        m_NumColorKeys: 8
+        m_NumAlphaKeys: 2
+      _tint: {r: 0, g: 0, b: 0, a: 0}
+      _startHeight: 0
+      _tintPercent: 0
+    _noise:
+      _filterType: 1
+      _simpleSettings:
+        _strength: -0.06
+        _numberLayers: 0
+        _baseRoughness: 0
+        _roughness: 0
+        _persistence: 0
+        _centre: {x: 0, y: 0, z: 0}
+        _minValue: 0
+      _ridgidSettings:
+        _strength: 1
+        _numberLayers: 6
+        _baseRoughness: 1.41
+        _roughness: 0.84
+        _persistence: 0.96
+        _centre: {x: 0, y: 0, z: 0}
+        _minValue: 0.36
+        _weightMultiplier: 0.54
+    _noiseOffset: 1.08
+    _noiseStrength: 0.15
+    _blendAmount: 0.248
+  _oceanColor:
+    serializedVersion: 2
+    key0: {r: 0.227451, g: 0.2392157, b: 0.24705884, a: 1}
+    key1: {r: 0.6196604, g: 0.62545234, b: 0.62931365, a: 1}
+    key2: {r: 1, g: 1, b: 1, a: 0}
+    key3: {r: 0.65531576, g: 0.6605647, b: 0.66406405, a: 0}
+    key4: {r: 0.6434306, g: 0.6488606, b: 0.6524806, a: 0}
+    key5: {r: 0.84092504, g: 0.84334743, b: 0.8449624, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 6361
+    ctime2: 12529
+    ctime3: 25058
+    ctime4: 37394
+    ctime5: 46838
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2

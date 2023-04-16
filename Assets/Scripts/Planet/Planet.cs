@@ -63,6 +63,7 @@ namespace Globenar
                 {
                     GameObject meshObj = new GameObject("mesh");
                     meshObj.transform.parent = transform;
+                    meshObj.transform.localPosition = Vector3.zero;
 
                     meshObj.AddComponent<MeshRenderer>();
                     _meshFilters[i] = meshObj.AddComponent<MeshFilter>();
@@ -76,6 +77,10 @@ namespace Globenar
             }
         }
 
+        private void Start()
+        {
+            GeneratePlanet();
+        }
         public void GeneratePlanet()
         {
             Initialize();
