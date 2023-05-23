@@ -40,6 +40,7 @@ namespace Kamen.UI
 
         public Vector2 GetCurrentReferenceResolution() => _canvasScaler.referenceResolution;
         public Vector2 GetCurrentScreenSize() => _canvasRectTransform.sizeDelta;
+        public float GetScaleSize() => transform.localScale.x;
 
         #endregion
     }
