@@ -134,7 +134,7 @@ namespace Kamen.UI
                     _isPositiveScroll = eventData.position.x > _lastDragPosition.x;
                     break;
                 case ScrollContent.ScrollType.Vertical:
-                    _isPositiveScroll = eventData.position.y > _lastDragPosition.y;
+                    _isPositiveScroll = eventData.position.y < _lastDragPosition.y;
                     break;
             }
             _lastDragPosition = eventData.position;
@@ -150,7 +150,7 @@ namespace Kamen.UI
                     newPosition.z = transform.position.z;
                     break;
                 case ScrollContent.ScrollType.Vertical:
-                    newPosition.y = endItem.position.y - (_scrollContent.ChildHeight + _scrollContent.ItemSpacing) * _scrollDirection;
+                    newPosition.y = endItem.position.y + (_scrollContent.ChildHeight + _scrollContent.ItemSpacing) * _scrollDirection;
                     newPosition.z = transform.position.z;
                     break;
             }
@@ -163,14 +163,15 @@ namespace Kamen.UI
                 case ScrollContent.ScrollType.Horizontal:
                     _thresholdValue = transform.position.x + (_scrollContent.Width / 2f + _currentOutOfBoundsThreshold) * _scrollDirection;
                     _itemPositionValue = item.position.x - _scrollContent.ChildWidth / 2f * _scrollDirection;
-                    break;
+                    return _isPositiveScroll ? _itemPositionValue > _thresholdValue : _itemPositionValue < _thresholdValue;
+
                 case ScrollContent.ScrollType.Vertical:
-                    _thresholdValue = transform.position.y + (_scrollContent.Height / 2f + _currentOutOfBoundsThreshold) * _scrollDirection;
-                    _itemPositionValue = item.position.y - _scrollContent.ChildHeight / 2f * _scrollDirection;
-                    break;
+                    _thresholdValue = transform.position.y - (_scrollContent.Height / 2f + _currentOutOfBoundsThreshold) * _scrollDirection;
+                    _itemPositionValue = item.position.y + _scrollContent.ChildHeight / 2f * _scrollDirection;
+                    return _isPositiveScroll ? _itemPositionValue < _thresholdValue : _itemPositionValue > _thresholdValue;
             }
 
-            return _isPositiveScroll ? _itemPositionValue > _thresholdValue : _itemPositionValue < _thresholdValue;
+            return false;
         }
         private void SetSnapPosition()
         {

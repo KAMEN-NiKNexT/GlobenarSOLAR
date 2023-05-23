@@ -1,6 +1,3 @@
-using Kamen.DataSave;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -60,7 +57,7 @@ namespace Kamen.UI
             EditorGUILayout.PropertyField(_isManualConfiguration);
 
             serializedObject.ApplyModifiedProperties();
-            if (_isManualConfiguration.boolValue == true)
+            if (_isManualConfiguration.boolValue)
             {
                 if (GUILayout.Button("Set Children Positions")) scrollContent.ManualInitialize();
             }

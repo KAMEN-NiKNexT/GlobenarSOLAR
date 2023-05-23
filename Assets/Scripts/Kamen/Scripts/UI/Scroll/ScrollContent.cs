@@ -96,12 +96,12 @@ namespace Kamen.UI
         }
         private void SetUpForVertical()
         {
-            float originY = 0 - (LocalHeight / 2f);
+            float originY = 0 + (LocalHeight / 2f);
             float offsetPosition = LocalChildHeight / 2f;
             for (int i = 0; i < _rectChildren.Length; i++)
             {
                 Vector2 childPosition = Vector2.zero;
-                childPosition.y = originY + offsetPosition + i * (LocalChildHeight + _itemSpacing);
+                childPosition.y = originY - (offsetPosition + i * (LocalChildHeight + _itemSpacing));
                 _rectChildren[i].localPosition = childPosition;
             }
         }
