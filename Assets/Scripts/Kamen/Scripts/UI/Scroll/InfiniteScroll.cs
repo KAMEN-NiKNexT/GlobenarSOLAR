@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -22,15 +24,19 @@ namespace Kamen.UI
         [SerializeField] private float _snapSpeed;
         [SerializeField] private float _minVelocityToDisableInertia;
 
-        [Header("Variables")]
+        [Header("Infinity scroll variables")]
         private Vector2 _lastDragPosition;
         private float _currentOutOfBoundsThreshold;
-
-        [Header("Infinity scroll variables")]
+        private int _currentItemIndex;
+        private Transform _currentItem;
+        private int _endItemIndex;
+        private Transform _endItem;
+        private Vector3 _newPosition;
         private bool _isPositiveScroll;
         private int _scrollDirection;
         private float _thresholdValue;
         private float _itemPositionValue;
+        public Action<int, int> OnPanelMoved;
 
         [Header("Snap scroll variables")]
         private int _selectedPanelId;
@@ -85,16 +91,17 @@ namespace Kamen.UI
         }
         private void HandleScroll(Vector2 handlePosition)
         {
-            int currentItemIndex = _isPositiveScroll ? _scrollRect.content.childCount - 1 : 0;
-            Transform currentItem = _scrollRect.content.GetChild(currentItemIndex);
-            if (!ReachedThreshold(currentItem)) return;
+            _currentItemIndex = _isPositiveScroll ? _scrollRect.content.childCount - 1 : 0;
+            _currentItem = _scrollRect.content.GetChild(_currentItemIndex);
+            if (!ReachedThreshold(_currentItem)) return;
 
-            int endItemIndex = _isPositiveScroll ? 0 : _scrollRect.content.childCount - 1;
-            Transform endItem = _scrollRect.content.GetChild(endItemIndex);
-            Vector3 newPosition = CalculateNewPosition(endItem);
+            _endItemIndex = _isPositiveScroll ? 0 : _scrollRect.content.childCount - 1;
+            _endItem = _scrollRect.content.GetChild(_endItemIndex);
+            _newPosition = CalculateNewPosition(_endItem);
 
-            currentItem.position = newPosition;
-            currentItem.SetSiblingIndex(endItemIndex);
+            _currentItem.position = _newPosition;
+            _currentItem.SetSiblingIndex(_endItemIndex);
+            OnPanelMoved?.Invoke(_currentItemIndex, _endItemIndex);
         }
         public void Scrolling(bool scroll)
         {
