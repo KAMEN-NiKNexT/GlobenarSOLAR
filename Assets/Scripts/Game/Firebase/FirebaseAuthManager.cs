@@ -77,6 +77,7 @@ namespace Globenar
                     //displayName = user.DisplayName ?? "";
                    // emailAddress = user.Email ?? "";
                     //photoUrl = user.PhotoUrl ?? "";
+                    //dfgdfs
                 }
             }
         }
