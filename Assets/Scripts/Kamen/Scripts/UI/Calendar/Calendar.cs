@@ -1,13 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace Kamen.UI
 {
-    public class Calendar : MonoBehaviour
+    public class Calendar : SingletonComponent<Calendar>
     {
         #region Enums
 
@@ -73,7 +70,6 @@ namespace Kamen.UI
 
         #endregion
 
-
         #region Variables
 
         [Header("Objects")]
@@ -87,6 +83,7 @@ namespace Kamen.UI
 
         [Header("Variables")]
         private List<DateTime> _dates = new List<DateTime>();
+        public Action<DateTime> OnChoosenDateTimeChanged;
 
         #endregion
 
@@ -182,11 +179,7 @@ namespace Kamen.UI
                     break;
                     
             }
-            Debug.Log(_dates[0] + "|| 0");
-            Debug.Log(_dates[1] + "|| 1");
-            Debug.Log(_dates[2] + "|| 2");
-            Debug.Log(_dates[3] + "|| 3");
-            Debug.Log(_dates[4] + "|| 4");
+            OnChoosenDateTimeChanged?.Invoke(_dates[_numberChoosenDate]);
         }
 
         private void UpdateAllPanels()
