@@ -134,7 +134,7 @@ namespace Globenar
 
         public void SignUp()
         {
-            FirebaseAuthManager.Instance.SignUp(_email, _password);
+           // FirebaseAuthManager.Instance.SignUp(_email, _password);
         }
 
         #endregion

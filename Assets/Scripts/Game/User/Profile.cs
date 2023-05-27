@@ -8,32 +8,32 @@ namespace Globenar
         #region Variables
 
         [SerializeField] private string _name;
-        [SerializeField] private int _age;
+        [SerializeField] private string _birthdayDate;
         [SerializeField] private string _gender;
-        [SerializeField] private string _country;
         [SerializeField] private string _email;
+        [SerializeField] private string _password;
 
         #endregion
 
         #region Properties
 
         public string Name { get => _name; }
-        public int Age { get => _age; }
+        public string BirthdayDate { get => _birthdayDate; }
         public string Gender { get => _gender; }
-        public string Country { get => _country; }
         public string Email { get => _email; }
+        public string Password { get => _password; }
 
         #endregion
 
         #region Constructors
 
-        public Profile(string name, int age, string gender, string country, string email)
+        public Profile(string name, string birthdayDate, string gender, string email, string password)
         {
             _name = name;
-            _age = age;
+            _birthdayDate = birthdayDate;
             _gender = gender;
-            _country = country;
             _email = email;
+            _password = password;
         }
 
         #endregion

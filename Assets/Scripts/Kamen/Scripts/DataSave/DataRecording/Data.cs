@@ -1,3 +1,4 @@
+using ComputerQuiz;
 using Globenar;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Kamen.DataSave
 
         public Action OnDataChanged;
         [SerializeField] private Profile _userProfile;
+        [SerializeField] private List<QuizResultData> _quizResults = new List<QuizResultData>();
 
         #endregion
 
@@ -21,6 +23,7 @@ namespace Kamen.DataSave
             get => _userProfile; 
             set { if (value != null) _userProfile = value; }
         }
+        public List<QuizResultData> QuizResults { get => _quizResults; }
 
         #endregion
 
